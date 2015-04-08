@@ -15,7 +15,7 @@ import com.google.devtools.simple.runtime.components.android.AccelerometerSensor
 import com.google.devtools.simple.runtime.events.EventDispatcher;
 
 public class ExamActivity extends Form implements HandlesEventDispatching {
-
+//the components used in app
 	private HorizontalArrangement line1, line2, line3, line4, line5;
 	private Button incButton;
 	private Label resultLabel;
@@ -39,7 +39,7 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
      inputBox = new TextBox(line1);
      inputBox.NumbersOnly(true);
    
-     incButton = new Button(line2,"Increment it:"); 
+     incButton = new Button(line2,"Double it:"); 
      
      resultLabel = new Label(line3,"");
      
@@ -51,14 +51,14 @@ public class ExamActivity extends Form implements HandlesEventDispatching {
  @Override
  public boolean dispatchEvent(Component component, String id, String eventName,
          Object[] args) {
- 	
+ 	//code to multiply  number in textbox
 	    if (component.equals(incButton) && eventName.equals("Click")){
 	    	temp = Integer.parseInt(inputBox.Text());
-	    	temp += 1;
+	    	temp *= 2;
 	    	resultLabel.Text(String.valueOf(temp));
 	        return true;
 	     } 
-	    
+	    // changes name of button
 	    if (component.equals(resultLabel) && eventName.equals("Click")) {
 	    	outputLabel.Text("You pushed me!!");
 	    	return true;
